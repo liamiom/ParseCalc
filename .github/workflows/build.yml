@@ -31,4 +31,6 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Set ApiKey
-      run: dotnet nuget push ./<project>/Src/Cli/bin/nupkg/*.nupkg -k ${{secrets.NUGETAPIKEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
+      run: dotnet nuget push ./<project>/Src/Cli/bin/nupkg/*.nupkg -k ${NUGET_TOKEN} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
+      env:
+       NUGET_TOKEN: ${{ secrets.NUGETAPIKEY }}
