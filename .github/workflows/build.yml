@@ -12,8 +12,11 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
+
+    defaults:
+      run:
+        working-directory: Src/ParseCalc
 
     steps:
     - uses: actions/checkout@v4
@@ -23,7 +26,6 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: Src/ParseCalc
     - name: Build
       run: dotnet build -c Release --no-restore
     - name: Test
