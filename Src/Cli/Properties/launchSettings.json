@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "Cli": {
+      "commandName": "Project"
+    },
+    "Cli 2 * 8 * 27": {
+      "commandName": "Project",
+      "commandLineArgs": "\"2 * 8 * 27\""
+    },
+    "Cli 2 * 8 \\n27 - 4": {
+      "commandName": "Project",
+      "commandLineArgs": "\"2 * 8 \\n27 - 4\""
+    }
+  }
+}

@@ -1,6 +1,6 @@
 ﻿namespace ParseCalc;
 
-class Math
+public class Math
 {
     public decimal?[] _results = [];
 

@@ -16,7 +16,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: Src/ParseCalc
+        working-directory: Src
 
     steps:
     - uses: actions/checkout@v4

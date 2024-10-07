@@ -6,6 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PackAsTool>true</PackAsTool>
+    <PackageId>ParseCalc</PackageId>
+    <ToolCommandName>pcalc</ToolCommandName>
+    <PackageOutputPath>bin/./nupkg</PackageOutputPath>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.2.1</Version>
   </PropertyGroup>
 
