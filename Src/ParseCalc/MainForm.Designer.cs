@@ -48,7 +48,7 @@ partial class MainForm
         | System.Windows.Forms.AnchorStyles.Right)));
         this.CalcTextBox.BackColor = System.Drawing.Color.DimGray;
         this.CalcTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-        this.CalcTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        this.CalcTextBox.Font = new System.Drawing.Font("Courier New", 13, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         this.CalcTextBox.ForeColor = System.Drawing.Color.WhiteSmoke;
         this.CalcTextBox.Location = new System.Drawing.Point(12, 30);
         this.CalcTextBox.Multiline = true;
@@ -64,7 +64,7 @@ partial class MainForm
         | System.Windows.Forms.AnchorStyles.Right)));
         this.ResultTextBox.BackColor = System.Drawing.Color.DimGray;
         this.ResultTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-        this.ResultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        this.ResultTextBox.Font = new System.Drawing.Font("Courier New", 15, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         this.ResultTextBox.ForeColor = System.Drawing.Color.LightSkyBlue;
         this.ResultTextBox.Location = new System.Drawing.Point(12, 458);
         this.ResultTextBox.Name = "ResultTextBox";

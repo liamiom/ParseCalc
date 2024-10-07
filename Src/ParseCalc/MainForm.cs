@@ -2,16 +2,23 @@ namespace ParseCalc;
 
 public partial class MainForm : Form
 {
-    private readonly List<Label> _labelList = new List<Label>();
-    private List<decimal?> _results = new List<decimal?>();
+    private List<decimal?> _results = [];
 
-    private dynamic ResultBox => new
-    {
-        Top = 0,
-        Left = CalcTextBox.Width - 220,
-        ItemHeight = 18,
-        ItemWidth = Width - CalcTextBox.Width
-    };
+    private (int Top, int Left, int ItemHeight, int ItemWidth) ResultBox => 
+    (
+        Top: 0,
+        Left: CalcTextBox.Width - 220,
+        ItemHeight: 18,
+        ItemWidth: Width - CalcTextBox.Width
+    );
+
+    private (int Top, int Left, int ItemHeight, int ItemWidth) GetResultBox(int index, int leftPadding) =>
+    (
+        Top: 18 * index,
+        Left: CalcTextBox.Width - 220 + leftPadding,
+        ItemHeight: 18,
+        ItemWidth: Width - CalcTextBox.Width
+    );
 
     public MainForm()
     {
@@ -27,29 +34,31 @@ public partial class MainForm : Form
 
     private void ReDrawResults()
     {
-        int count = 0;
-        decimal result = 0;
-        foreach (decimal? item in _results)
+        for (int i = 0; i < _results.Count; i++)
         {
-            int top = ResultBox.Top + (ResultBox.ItemHeight * count);
-            if (item.HasValue)
+            if (_results[i].HasValue)
             {
-                DrawString(item.Value.ToShortFormat(), top, ResultBox.Left + item.Value.LeftPadding());
-                result += item.Value;
+                decimal value = _results[i] ?? 0;
+                var box = GetResultBox(index: i, leftPadding: value.LeftPadding());
+                DrawString(value.ToShortFormat(), box.Top, box.Left);
             }
-
-            count++;
         }
 
+        int longestDecimals = _results.Any()
+            ? _results.Select(i => (i ?? 0).ToDecimals().Length).Max()
+            : 0;
+        string resultFormat = $"n{longestDecimals}";
+
+        decimal result = _results.Sum(i => i ?? 0);
         ResultTextBox.Text = _results.Count != 0
-            ? result.ToShortFormat()
+            ? result.ToString(resultFormat)
             : string.Empty;
     }
 
     public void DrawString(string StringText, float y, float x)
     {
         Graphics formGraphics = CalcTextBox.CreateGraphics();
-        Font drawFont = new("Inconsolata", 11);
+        Font drawFont = new("Courier New", 13);
         SolidBrush drawBrush = new(Color.Black);
         StringFormat drawFormat = new();
         formGraphics.DrawString(StringText, drawFont, drawBrush, x, y, drawFormat);
@@ -129,11 +138,11 @@ public partial class MainForm : Form
         {
             OpenHelp();
         }
-        if (e.KeyCode == Keys.F2)
+        else if (e.KeyCode == Keys.F2)
         {
             OpenSaveList();
         }
-        if (e.KeyCode == Keys.Escape)
+        else if (e.KeyCode == Keys.Escape)
         {
             CloseSaveList();
         }
