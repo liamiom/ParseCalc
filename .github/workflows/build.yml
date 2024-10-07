@@ -30,3 +30,7 @@ jobs:
       run: dotnet build -c Release --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Set ApiKey
+      run: nuget setApiKey $NUGETAPIKEY
+    - name: Publish
+      run: PushToNuget.bat
