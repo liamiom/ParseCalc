@@ -4,31 +4,6 @@ class Math
 {
     public decimal?[] _results = [];
 
-    private string _globalSymbol = "+";
-    //public decimal? Total
-    //{
-    //    get
-    //    {
-    //        if (string.IsNullOrEmpty(_globalSymbol))
-    //        {
-    //            return null;
-    //        }
-
-    //        decimal? total = null;
-    //        for (int i = 0; i < _results.Length; i++)
-    //        {
-    //            if (_results[i] != 0)
-    //            {
-    //                total = !total.HasValue 
-    //                    ? _results[i] 
-    //                    : DoMath(total.Value, _results[i].GetValueOrDefault(0), _globalSymbol);
-    //            }
-    //        }
-
-    //        return total;
-    //    }
-    //}
-
     public static decimal?[] Parse(string text) => 
         Parse(text.SplitIntoLines());
 
