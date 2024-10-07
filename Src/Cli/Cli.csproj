@@ -5,6 +5,13 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>pcalc</AssemblyName>
+    <PackAsTool>true</PackAsTool>
+    <PackageId>ParseCalc</PackageId>
+    <ToolCommandName>pcalc</ToolCommandName>
+    <PackageOutputPath>bin/./nupkg</PackageOutputPath>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.2.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
