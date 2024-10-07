@@ -2,7 +2,6 @@ namespace ParseCalc;
 
 public partial class MainForm : Form
 {
-    private Math _mth = new Math();
     private readonly List<Label> _labelList = new List<Label>();
     private List<decimal?> _results = new List<decimal?>();
 
@@ -22,8 +21,7 @@ public partial class MainForm : Form
 
     private void RefreshResults()
     {
-        _mth.Parse(CalcTextBox.Text.Replace("\r", "").Split('\n'));
-        _results = _mth._results.ToList();
+        _results = Math.Parse(CalcTextBox.Text).ToList();
         Refresh();
     }
 
@@ -39,6 +37,7 @@ public partial class MainForm : Form
                 DrawString(item.Value.ToShortFormat(), top, ResultBox.Left + item.Value.LeftPadding());
                 result += item.Value;
             }
+
             count++;
         }
 

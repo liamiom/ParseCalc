@@ -29,30 +29,25 @@ class Math
     //    }
     //}
 
-    public void Parse(string[] lines)
+    public static decimal?[] Parse(string text) => 
+        Parse(text.SplitIntoLines());
+
+    public static decimal?[] Parse(string[] lines)
     {
-        _results = [];
         lines = TrimOutSpaces(lines);
         lines = SetGlobalSymbol(lines);
         lines = TrimOutVariables(lines);
-        WorkoutLines(lines);   
+        return WorkoutLines(lines);
     }
 
-    public static string[] TrimOutSpaces(string[] lines)
-    {
-        for (int i = 0; i < lines.Length; i++)
-        {
-            lines[i] = lines[i].Replace(" ", "");
-        }
+    public static string[] TrimOutSpaces(string[] lines) => 
+        lines.Select(i => i.Replace(" ", "")).ToArray();
 
-        return lines;
-    }
-
-    public string[] SetGlobalSymbol(string[] lines)
+    public static string[] SetGlobalSymbol(string[] lines)
     {
         if (lines.Length > 1 && lines[0].IsSymbol())
         {
-            _globalSymbol = lines[0];
+            //_globalSymbol = lines[0];
             lines[0] = string.Empty;
         }
 
@@ -86,9 +81,9 @@ class Math
         return lines;
     }
 
-    private void WorkoutLines(string[] lines)
+    private static decimal?[] WorkoutLines(string[] lines)
     {
-        _results = new decimal?[lines.Length];
+        decimal?[] results = new decimal?[lines.Length];
         for (int i = 0; i < lines.Length; i++)
         {
             if (!string.IsNullOrWhiteSpace(lines[i]))
@@ -96,10 +91,12 @@ class Math
                 decimal? result = ParseLine(lines[i]);
                 if (result.HasValue)
                 {
-                    _results[i] = result.Value;
+                    results[i] = result.Value;
                 }
             }
         }
+
+        return results;
     }
 
     private static decimal? ParseLine(string line)

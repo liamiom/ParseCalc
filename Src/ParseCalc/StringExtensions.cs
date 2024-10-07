@@ -30,6 +30,12 @@ public static partial class StringExtensions
         return list.ToArray();
     }
 
+    public static string[] SplitIntoLines(this string text) => 
+        text.Replace("\r", "").Split('\n');
+
+    public static bool EqualsIgnoreCase(this string text, string checkText) =>
+        text.Equals(checkText, StringComparison.CurrentCultureIgnoreCase);
+
     public static bool RegexMatch(this string text, string pattern) =>
         Regex.IsMatch(text, pattern);
 
