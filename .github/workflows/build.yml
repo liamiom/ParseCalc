@@ -13,6 +13,7 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    environment: Nuget
 
     defaults:
       run:
@@ -30,7 +31,8 @@ jobs:
       run: dotnet build -c Release --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Set ApiKey
-      run: dotnet nuget push ./<project>/Src/Cli/bin/nupkg/*.nupkg -k ${NUGET_TOKEN} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
+    - name: NuGet Push
       env:
        NUGET_TOKEN: ${{ secrets.NUGETAPIKEY }}
+      run: dotnet nuget push ("Cli\bin\nupkg\" + (Get-ChildItem -Path "Cli\bin\nupkg\*.nupkg" -Force -Recurse -File | Select-Object -First 1).Name) -k $env:NUGET_TOKEN -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
+      
