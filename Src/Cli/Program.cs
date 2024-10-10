@@ -38,7 +38,7 @@ internal class Program
         You can also split out the string into lines with the \n escape character like so.
         ParseCalc "2 * 8 \n27 - 4"
 
-        Or if you want to edit in your favourite editor pass the open argument
+        Or if you want to edit in your favourite editor pass the open argument like so.
         ParseCalc -open
         """);
     }

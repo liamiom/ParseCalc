@@ -11,7 +11,7 @@ You can also split out the string into lines with the \\n escape character like 
 ParseCalc "2 * 8 \n27 - 4"
 ```
 
-Or if you want to use the Windows Forms interface just pass the ui argument like so. 
+Or if you want to edit in your favourite editor pass the open argument like so. 
 ```
-ParseCalc -ui
+ParseCalc -open
 ```
