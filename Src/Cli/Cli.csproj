@@ -14,6 +14,7 @@
     <Version>0.3.1</Version>
     <Title>A simple text parsing calculator.</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Description>A simple free text parsing calculator. For when the inbuilt calculator is not enough, but a scripting language is too much.</Description>
   </PropertyGroup>
 
   <ItemGroup>
