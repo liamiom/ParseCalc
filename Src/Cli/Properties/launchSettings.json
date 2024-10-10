@@ -10,6 +10,10 @@
     "Cli 2 * 8 \\n27 - 4": {
       "commandName": "Project",
       "commandLineArgs": "\"2 * 8 \\n27 - 4\""
+    },
+    "Cli Open": {
+      "commandName": "Project",
+      "commandLineArgs": "-open"
     }
   }
 }

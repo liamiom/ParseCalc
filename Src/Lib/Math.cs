@@ -74,7 +74,7 @@ public class Math
         return results;
     }
 
-    private static decimal? ParseLine(string line)
+    public static decimal? ParseLine(string line)
     {
         // If there are brakets work the contents out first
         if (line.Contains('(') && line.Contains(')'))
