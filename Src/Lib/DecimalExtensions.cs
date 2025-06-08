@@ -20,5 +20,5 @@ public static class DecimalExtensions
         _decimal.ToString("###,###,###.");
 
     public static string ToDecimals(this decimal _decimal) => 
-        (_decimal - decimal.Round(_decimal, 0)).ToString(".######");
+        (_decimal - decimal.Floor(_decimal)).ToString(".######");
 }

@@ -21,7 +21,8 @@ internal class Program
             OpenFile(filename);
         }
 
-        OneArgs(args[0]);
+        string param = string.Join(" ", args);
+        Calc(param);
     }
 
     static void PrintHelp()
@@ -43,7 +44,7 @@ internal class Program
         """);
     }
 
-    static void OneArgs(string arg)
+    static void Calc(string arg)
     {
         string[] lines = arg.Replace("\\n", "\n").SplitIntoLines();
         decimal[] results = ParseCalc.Math.Parse(lines).Select(i => i ?? 0).ToArray();
@@ -54,7 +55,7 @@ internal class Program
         }
         else if (results.Length == 1)
         {
-            Console.WriteLine(results.First());
+            Console.WriteLine(results.First().ToFormat());
             return;
         }
 

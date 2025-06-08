@@ -3,13 +3,13 @@
     "Cli": {
       "commandName": "Project"
     },
-    "Cli 2 * 8 * 27": {
+    "Cli 2 * 8 * 2700": {
       "commandName": "Project",
-      "commandLineArgs": "\"2 * 8 * 27\""
+      "commandLineArgs": "2 * 8 * 2700"
     },
-    "Cli 2 * 8 \\n27 - 4": {
+    "Cli 2 * 8 \\n27 - 4\\n7 / 11": {
       "commandName": "Project",
-      "commandLineArgs": "\"2 * 8 \\n27 - 4\""
+      "commandLineArgs": "\"2 * 8 \\n27 - 4\\n7 / 11\""
     },
     "Cli Open": {
       "commandName": "Project",
